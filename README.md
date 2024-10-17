@@ -1,24 +1,7 @@
-# README
+# Api de productos para Java
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta es una api REST para poder probar metodos PUT, POST y DELETE desde aplicaciones Java, asegurando la independencia de un servicio de externo de api, evitando así desventajas del uso limitado fuera de GET y tener que generar APIKEYS 💀
 
-Things you may want to cover:
+El servicio será deployeado en Render y tendrá una vida de 90 días desde el presente día de `17/10/2024`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Cualquier duda o curiosidad sobre el servicio preguntar por interno.

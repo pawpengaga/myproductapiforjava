@@ -5,12 +5,36 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
 
-    render json: @products
+    render json: @products.map { |product|
+    {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      category: product.category,
+      image: product.image,
+      rating: {
+        rate: product.rating&.rate,
+        count: product.rating&.count
+      }
+    }
+  }
   end
 
   # GET /products/1
   def show
-    render json: @product
+    render json: {
+      id: @product.id,
+      title: @product.title,
+      price: @product.price,
+      description: @product.description,
+      category: @product.category,
+      image: @product.image,
+      rating: {
+        rate: @product.rating&.rate,
+        count: @product.rating&.count
+      }
+    }
   end
 
   # POST /products
@@ -46,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:title, :price, :description, :category, :image)
+      params.require(:product).permit(:title, :price, :description, :category, :image, rating_attributes: [:rate, :count])
     end
 end
